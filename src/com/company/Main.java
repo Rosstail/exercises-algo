@@ -147,5 +147,23 @@ public class Main {
         }
         else
             System.out.println("La date " + jour + "/" + mois + "/" + annee + " est invalide");
+
+        //EXERCICES BOUCLES
+
+        int n;
+
+        n = 0;
+        System.out.println();
+        while (n <= 100)
+        {
+            System.out.print(n + " ");
+            n++;
+        }
+        System.out.println();
+        while (n >= 1)
+        {
+            n--;
+            System.out.print(n + " ");
+        }
     }
 }
