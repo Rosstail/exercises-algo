@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.swing.*;
+
 public class Main {
 
     static void variables()
@@ -251,10 +253,58 @@ public class Main {
         return eq;
     }
 
+    static int abs(int valab)
+    {
+        if (valab < 0)
+            valab = -valab;
+        return valab;
+    }
+
+    static String isCorrectDate(int jour, int mois, int annee)
+    {
+        String date;
+
+        date = "Valide";
+        if (annee >= 0) {
+            if (mois >= 1 && mois <= 12) {
+                if ((mois % 2 == 1 || mois == 8) && jour >= 1 && jour <= 31)
+                    return date;
+                else if (mois % 2 == 0 && mois != 2 && mois != 7 && jour >= 1 && jour <= 30)
+                    return date;
+                else if (mois == 2) {
+                    if (annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0)) {
+                        if (jour >= 1 && jour <= 29)
+                            return date;
+                        else
+                            date = "Invalide";
+                    }
+                    else if (jour >= 1 && jour <= 28)
+                        return date;
+                    else
+                        date = "Invalide";
+                }
+            }
+        }
+        else
+            date = "Invalide";
+        return date;
+    }
+
+    static String leapYear(int annee)
+    {
+        String leap;
+
+        leap = "normale";
+        if (annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0))
+            leap = "bissextile";
+        return leap;
+    }
+
     public static void main(String[] args) {
         /*variables();
         conditional();
         loop();*/
+
         int minA;
         int minB;
         minA = -3;
@@ -262,6 +312,20 @@ public class Main {
         System.out.println();
         System.out.println("Le chiffre le plus petit est " + min(minA, minB));
 
-        
+
+        int valab;
+        valab = -1232;
+        System.out.println("La valeur absolue de valab est " + abs(valab));
+
+
+        int jour;
+        int mois;
+        int annee;
+
+        jour = 29;
+        mois = 02;
+        annee = 2018;
+        System.out.println("La date " + jour + "/" + mois + "/" + annee + " est " + isCorrectDate(jour, mois, annee));
+        System.out.println("L'année " + annee + " est " + leapYear(annee));
     }
 }
