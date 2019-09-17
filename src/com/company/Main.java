@@ -44,7 +44,7 @@ public class Main {
         pti = 0;
 
         System.out.println();
-        if      (pti < grd && pti < myn)
+        if (pti < grd && pti < myn)
             System.out.println("pti est le nombre le plus petit");
         else if (myn < grd && myn < pti)
             System.out.println("myn est le nombre le plus petit");
@@ -124,15 +124,13 @@ public class Main {
 
         System.out.println();
         if (annee >= 0) {
-            if (mois >= 1 && mois <= 12)
-            {
+            if (mois >= 1 && mois <= 12) {
                 if ((mois % 2 == 1 || mois == 8) && jour >= 1 && jour <= 31)
                     System.out.println("La date " + jour + "/" + mois + "/" + annee + " est valide");
                 else if (mois % 2 == 0 && mois != 2 && mois != 7 && jour >= 1 && jour <= 30)
                     System.out.println("La date " + jour + "/" + mois + "/" + annee + " est valide");
                 else if (mois == 2) {
-                    if (annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0))
-                    {
+                    if (annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0)) {
                         if (jour >= 1 && jour <= 29)
                             System.out.println("La date " + jour + "/" + mois + "/" + annee + " est valide");
                         else
@@ -154,16 +152,87 @@ public class Main {
 
         n = 0;
         System.out.println();
-        while (n <= 100)
-        {
+        while (n <= 100) {
             System.out.print(n + " ");
             n++;
         }
         System.out.println();
-        while (n >= 1)
-        {
+        while (n > 0) {
             n--;
             System.out.print(n + " ");
+        }
+        System.out.println();
+
+        while (n <= 100)
+        {
+            if (n % 3 == 0 && n != 0)
+                System.out.print(n + " ");
+            n++;
+        }
+
+        int a;
+        int b;
+        int c;
+
+        a = 9;
+        b = 3;
+        c = a;
+        System.out.println();
+        if (b == 0)
+            a = 1;
+        while (b - 1 > 0)
+        {
+            a = a * c;
+            b--;
+        }
+        System.out.println(a);
+
+        a = 6;
+        b = 0;
+        System.out.println();
+        while(b <= 10)
+        {
+            System.out.print(a * b + " ");
+            b++;
+        }
+
+        int m;
+
+        a = 0;
+        m = 45;
+
+        System.out.println();
+        while (a + a + 1 <= m)
+        {
+            a = a + a + 1;
+            System.out.print(a + " ");
+        }
+
+        int nb;
+        int bn;
+        int dgt;
+
+        nb = 5432;
+        bn = 0;
+        System.out.println();
+        while (nb >= 10)
+        {
+            bn = bn * 10 + nb % 10;
+            nb = nb / 10;
+        }
+        bn = bn * 10 + nb;
+        System.out.println(bn);
+
+        nb = 25;
+        System.out.println();
+        System.out.print(nb + " ");
+        while (nb > 1)
+        {
+            if (nb % 2 == 0)
+                nb = nb / 2;
+            else
+                nb = 3 * nb + 1;
+            System.out.print(nb + " ");
         }
     }
 }
