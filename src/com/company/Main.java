@@ -253,8 +253,7 @@ public class Main {
                 return true;
             else if (mois % 2 == 0 && mois != 2 && jour >= 1 && jour <= 30)
                 return true;
-            else
-            {
+            else {
                 if (annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0))
                     return jour >= 1 && jour <= 29;
                 return jour >= 1 && jour <= 28;
@@ -272,6 +271,40 @@ public class Main {
         return leap;
     }
 
+    static int sum(int nbr)
+    {
+        int sm;
+        int neg;
+
+        sm = 0;
+        neg = 1;
+        if (nbr < 0) {
+            nbr = -nbr;
+            neg = -1;
+        }
+        while (nbr >= 10)
+        {
+            sm = sm + nbr % 10;
+            nbr = nbr / 10;
+        }
+        sm = (sm + nbr) * neg;
+        return sm;
+    }
+
+    static int power(int nb, int pow)
+    {
+        int mul;
+
+        mul = nb;
+        if (pow == 0)
+            nb = 1;
+        while (pow - 1 > 0) {
+            nb = nb * mul;
+            pow--;
+        }
+        return nb;
+    }
+    
     public static void main(String[] args) {
         /*variables();
         conditional();
@@ -304,5 +337,17 @@ public class Main {
             correct = "invalide";
         System.out.println("La date " + jour + "/" + mois + "/" + annee + " est " + correct);
         System.out.println("L'année " + annee + " est " + leapYear(annee));
+
+        int nbr;
+
+        nbr = -3678;
+        System.out.println("La somme des chiffres de " + nbr + " est " + sum(nbr));
+
+        int nb;
+        int pow;
+
+        pow = 3;
+        nb = 5;
+        System.out.println("Le nombre " + nb + " à la puissance " + pow + " est de " + power(nb,pow));
     }
 }
