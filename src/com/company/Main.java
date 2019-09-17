@@ -237,9 +237,31 @@ public class Main {
         }
     }
 
+    static int min(int minA, int minB)
+    {
+        int eq;
+
+        eq = 0;
+        if (minA < minB)
+            return minA;
+        else if (minA == minB)
+            eq = minA;
+        else
+            return minB;
+        return eq;
+    }
+
     public static void main(String[] args) {
-        variables();
+        /*variables();
         conditional();
-        loop();
+        loop();*/
+        int minA;
+        int minB;
+        minA = -3;
+        minB = 5;
+        System.out.println();
+        System.out.println("Le chiffre le plus petit est " + min(minA, minB));
+
+        
     }
 }
