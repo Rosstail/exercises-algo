@@ -4,8 +4,7 @@ import javax.swing.*;
 
 public class Main {
 
-    static void variables()
-    {
+    static void variables() {
         int nbr;
         float comp;
         float dec;
@@ -36,8 +35,7 @@ public class Main {
         //un float divisé par 2 donne un float qui s'arrête net ou au nombre maximal de digit flottant
     }
 
-    static void conditional()
-    {
+    static void conditional() {
         int grd;
         int myn;
         int pti;
@@ -138,20 +136,17 @@ public class Main {
                             System.out.println("La date " + jour + "/" + mois + "/" + annee + " est valide");
                         else
                             System.out.println("La date " + jour + "/" + mois + "/" + annee + " est invalide");
-                    }
-                    else if (jour >= 1 && jour <= 28)
+                    } else if (jour >= 1 && jour <= 28)
                         System.out.println("La date " + jour + "/" + mois + "/" + annee + " est valide");
                     else
                         System.out.println("La date " + jour + "/" + mois + "/" + annee + " est invalide");
                 }
             }
-        }
-        else
+        } else
             System.out.println("La date " + jour + "/" + mois + "/" + annee + " est invalide");
     }
 
-    static void loop()
-    {
+    static void loop() {
         int n;
 
         n = 0;
@@ -167,8 +162,7 @@ public class Main {
         }
         System.out.println();
 
-        while (n <= 100)
-        {
+        while (n <= 100) {
             if (n % 3 == 0 && n != 0)
                 System.out.print(n + " ");
             n++;
@@ -184,8 +178,7 @@ public class Main {
         System.out.println();
         if (b == 0)
             a = 1;
-        while (b - 1 > 0)
-        {
+        while (b - 1 > 0) {
             a = a * c;
             b--;
         }
@@ -194,8 +187,7 @@ public class Main {
         a = 6;
         b = 0;
         System.out.println();
-        while(b <= 10)
-        {
+        while (b <= 10) {
             System.out.print(a * b + " ");
             b++;
         }
@@ -206,8 +198,7 @@ public class Main {
         m = 45;
 
         System.out.println();
-        while (a + a + 1 <= m)
-        {
+        while (a + a + 1 <= m) {
             a = a + a + 1;
             System.out.print(a + " ");
         }
@@ -218,8 +209,7 @@ public class Main {
         nb = 5432;
         bn = 0;
         System.out.println();
-        while (nb >= 10)
-        {
+        while (nb >= 10) {
             bn = bn * 10 + nb % 10;
             nb = nb / 10;
         }
@@ -229,8 +219,7 @@ public class Main {
         nb = 25;
         System.out.println();
         System.out.print(nb + " ");
-        while (nb > 1)
-        {
+        while (nb > 1) {
             if (nb % 2 == 0)
                 nb = nb / 2;
             else
@@ -239,8 +228,7 @@ public class Main {
         }
     }
 
-    static int min(int minA, int minB)
-    {
+    static int min(int minA, int minB) {
         int eq;
 
         eq = 0;
@@ -253,45 +241,29 @@ public class Main {
         return eq;
     }
 
-    static int abs(int valab)
-    {
+    static int abs(int valab) {
         if (valab < 0)
             valab = -valab;
         return valab;
     }
 
-    static String isCorrectDate(int jour, int mois, int annee)
-    {
-        String date;
-
-        date = "Valide";
-        if (annee >= 0) {
-            if (mois >= 1 && mois <= 12) {
-                if ((mois % 2 == 1 || mois == 8) && jour >= 1 && jour <= 31)
-                    return date;
-                else if (mois % 2 == 0 && mois != 2 && mois != 7 && jour >= 1 && jour <= 30)
-                    return date;
-                else if (mois == 2) {
-                    if (annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0)) {
-                        if (jour >= 1 && jour <= 29)
-                            return date;
-                        else
-                            date = "Invalide";
-                    }
-                    else if (jour >= 1 && jour <= 28)
-                        return date;
-                    else
-                        date = "Invalide";
-                }
+    static boolean isCorrectDate(int jour, int mois, int annee) {
+        if (mois >= 1 && mois <= 12 && annee >= 0) {
+            if ((mois % 2 == 1 || mois == 8) && jour >= 1 && jour <= 31)
+                return true;
+            else if (mois % 2 == 0 && mois != 2 && jour >= 1 && jour <= 30)
+                return true;
+            else
+            {
+                if (annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0))
+                    return jour >= 1 && jour <= 29;
+                return jour >= 1 && jour <= 28;
             }
         }
-        else
-            date = "Invalide";
-        return date;
+        return false;
     }
 
-    static String leapYear(int annee)
-    {
+    static String leapYear(int annee) {
         String leap;
 
         leap = "normale";
@@ -324,8 +296,13 @@ public class Main {
 
         jour = 29;
         mois = 02;
-        annee = 2018;
-        System.out.println("La date " + jour + "/" + mois + "/" + annee + " est " + isCorrectDate(jour, mois, annee));
+        annee = 2004;
+        String correct;
+
+        correct = "valide";
+        if (!isCorrectDate(jour, mois, annee))
+            correct = "invalide";
+        System.out.println("La date " + jour + "/" + mois + "/" + annee + " est " + correct);
         System.out.println("L'année " + annee + " est " + leapYear(annee));
     }
 }
