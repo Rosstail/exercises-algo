@@ -308,7 +308,7 @@ public class Main {
 /*    static int displayMultTable(int numb)
     {
         int mul;
-        int tbl*;
+        int[] tbl[];
 
         for (mul = 0, mul <= 10, mul--)
             tbl[mul] = numb * mul;
@@ -361,6 +361,6 @@ public class Main {
 
         int numb;
         numb = 6;
-        //System.out.println("La table de multiplication de " + numb + " est " + displayMultTable(numb));
+        /*System.out.println("La table de multiplication de " + numb + " est " + displayMultTable(numb));*/
     }
 }
