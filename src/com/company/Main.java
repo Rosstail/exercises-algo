@@ -2,8 +2,8 @@ package com.company;
 
 public class Main {
 
-    public static void main(String[] args) {
-        // EXERCICES VARIABLES
+    static void variables()
+    {
         int nbr;
         float comp;
         float dec;
@@ -32,9 +32,10 @@ public class Main {
         comp = dec / 2;
         System.out.println("dec / 2 = " + comp);
         //un float divisé par 2 donne un float qui s'arrête net ou au nombre maximal de digit flottant
+    }
 
-
-        //EXERCICE CONDITION
+    static void conditional()
+    {
         int grd;
         int myn;
         int pti;
@@ -145,9 +146,10 @@ public class Main {
         }
         else
             System.out.println("La date " + jour + "/" + mois + "/" + annee + " est invalide");
+    }
 
-        //EXERCICES BOUCLES
-
+    static void loop()
+    {
         int n;
 
         n = 0;
@@ -210,7 +212,6 @@ public class Main {
 
         int nb;
         int bn;
-        int dgt;
 
         nb = 5432;
         bn = 0;
@@ -234,5 +235,11 @@ public class Main {
                 nb = 3 * nb + 1;
             System.out.print(nb + " ");
         }
+    }
+
+    public static void main(String[] args) {
+        variables();
+        conditional();
+        loop();
     }
 }
