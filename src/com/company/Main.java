@@ -304,7 +304,16 @@ public class Main {
         }
         return nb;
     }
-    
+
+/*    static int displayMultTable(int numb)
+    {
+        int mul;
+        int tbl*;
+
+        for (mul = 0, mul <= 10, mul--)
+            tbl[mul] = numb * mul;
+        return tbl[5];
+    }*/
     public static void main(String[] args) {
         /*variables();
         conditional();
@@ -349,5 +358,9 @@ public class Main {
         pow = 3;
         nb = 5;
         System.out.println("Le nombre " + nb + " à la puissance " + pow + " est de " + power(nb,pow));
+
+        int numb;
+        numb = 6;
+        //System.out.println("La table de multiplication de " + numb + " est " + displayMultTable(numb));
     }
 }
