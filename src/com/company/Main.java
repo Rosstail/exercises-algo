@@ -110,7 +110,7 @@ public class Main {
         else
             System.out.println("pairimpair est impair");
 
-        int annee;
+        /*int annee;
         int mois;
         int jour;
 
@@ -143,7 +143,7 @@ public class Main {
                 }
             }
         } else
-            System.out.println("La date " + jour + "/" + mois + "/" + annee + " est invalide");
+            System.out.println("La date " + jour + "/" + mois + "/" + annee + " est invalide");*/
     }
 
     static void loop() {
@@ -231,12 +231,10 @@ public class Main {
     static int min(int minA, int minB) {
         int eq;
 
-        eq = 0;
+        eq = minA;
         if (minA < minB)
             return minA;
-        else if (minA == minB)
-            eq = minA;
-        else
+        else if (minA > minB)
             return minB;
         return eq;
     }
@@ -247,28 +245,25 @@ public class Main {
         return valab;
     }
 
-    static boolean isCorrectDate(int jour, int mois, int annee) {
-        if (mois >= 1 && mois <= 12 && annee >= 0) {
-            if ((mois % 2 == 1 || mois == 8) && jour >= 1 && jour <= 31)
+    static boolean isCorrectDate(int day, int month, int year) {
+        if (month >= 1 && month <= 12 && year >= 0) {
+            if ((month % 2 == 1 || month == 8) && day >= 1 && day <= 31)
                 return true;
-            else if (mois % 2 == 0 && mois != 2 && jour >= 1 && jour <= 30)
+            else if (month % 2 == 0 && month != 2 && day >= 1 && day <= 30)
                 return true;
             else {
-                if (annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0))
-                    return jour >= 1 && jour <= 29;
-                return jour >= 1 && jour <= 28;
+                if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+                    return day >= 1 && day <= 29;
+                return day >= 1 && day <= 28;
             }
         }
         return false;
     }
 
-    static String leapYear(int annee) {
-        String leap;
-
-        leap = "normale";
-        if (annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0))
-            leap = "bissextile";
-        return leap;
+    static boolean leapYear(int year) {
+        if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+            return true;
+        return false;
     }
 
     static int sum(int nbr)
@@ -305,15 +300,28 @@ public class Main {
         return nb;
     }
 
-/*    static int displayMultTable(int numb)
+    static void displayMultTable(int numb)
     {
         int mul;
-        int[] tbl[];
 
-        for (mul = 0, mul <= 10, mul--)
-            tbl[mul] = numb * mul;
-        return tbl[5];
-    }*/
+        for (mul = 0; mul <= 10; mul++)
+            System.out.print(numb * mul + " ");
+        System.out.println();
+    }
+
+    static int integerMirror(int nmb)
+    {
+        int rbmn;
+
+        rbmn = 0;
+        while (nmb >= 10) {
+            rbmn = rbmn * 10 + nmb % 10;
+            nmb = nmb / 10;
+        }
+        rbmn = rbmn * 10 + nmb;
+        return (rbmn);
+    }
+
     public static void main(String[] args) {
         /*variables();
         conditional();
@@ -323,29 +331,32 @@ public class Main {
         int minB;
         minA = -3;
         minB = 5;
-        System.out.println();
         System.out.println("Le chiffre le plus petit est " + min(minA, minB));
-
 
         int valab;
         valab = -1232;
         System.out.println("La valeur absolue de valab est " + abs(valab));
 
 
-        int jour;
-        int mois;
-        int annee;
-
-        jour = 29;
-        mois = 02;
-        annee = 2004;
+        int day;
+        int month;
+        int year;
         String correct;
+        String norbi;
+
+        day = 29;
+        month = 02;
+        year = 2004;
 
         correct = "valide";
-        if (!isCorrectDate(jour, mois, annee))
+        if (!isCorrectDate(day, month, year))
             correct = "invalide";
-        System.out.println("La date " + jour + "/" + mois + "/" + annee + " est " + correct);
-        System.out.println("L'année " + annee + " est " + leapYear(annee));
+        System.out.println("La date " + day + "/" + month + "/" + year + " est " + correct);
+
+        norbi = "bissextile";
+        if (!leapYear(year))
+            norbi = "normale";
+        System.out.println("L'année " + year + " est " + norbi);
 
         int nbr;
 
@@ -361,6 +372,11 @@ public class Main {
 
         int numb;
         numb = 6;
-        /*System.out.println("La table de multiplication de " + numb + " est " + displayMultTable(numb));*/
+        displayMultTable(numb);
+
+        int nmb;
+
+        nmb = 356275;
+        System.out.println("Le nombre mirroir de " + nmb + " est " + integerMirror(nmb));
     }
 }
