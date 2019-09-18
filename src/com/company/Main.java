@@ -322,11 +322,8 @@ public class Main {
         return (rbmn);
     }
 
-    public static void main(String[] args) {
-        /*variables();
-        conditional();
-        loop();*/
-
+    static void function()
+    {
         int minA;
         int minB;
         minA = -3;
@@ -366,8 +363,8 @@ public class Main {
         int nb;
         int pow;
 
-        pow = 3;
-        nb = 5;
+        nb = 4;
+        pow = 7;
         System.out.println("Le nombre " + nb + " à la puissance " + pow + " est de " + power(nb,pow));
 
         int numb;
@@ -378,5 +375,12 @@ public class Main {
 
         nmb = 356275;
         System.out.println("Le nombre mirroir de " + nmb + " est " + integerMirror(nmb));
+    }
+
+    public static void main(String[] args) {
+        /*variables();
+        conditional();
+        loop();
+        function();*/
     }
 }
